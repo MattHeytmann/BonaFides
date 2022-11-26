@@ -1,0 +1,12 @@
+ Co se planuje za vylepseni:
+
+ - hezci design
+ - uzivatele si mohou take upravovat svoje predmety
+ - kazdy bude mit svoje predmety ale ty hlavni budou pristupne vsem
+ - v testu budou procenta a take znamka
+ - test se bude moct delat z vice hodin teoreticky i predmetu stejne tak i cvicdeni a listovani
+ - at funguje search vsude nebo at tam kde nefunguje neni
+ - lepsi navigace
+ - kazdy predmet ma svoji barvu kterou si urci uzivatel
+ - mnohem lepsi prostredi pro uzivatele (zmena hesla, prezdivky atd...)
+ - vase napady rikejte me a ja se je pokusim udelat :)

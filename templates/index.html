@@ -1,0 +1,55 @@
+{% extends "app.html" %}
+
+{% block title %}
+    Bona fide
+{% endblock title %}
+
+{% block content %}
+
+    {% for subject in subjects %}
+      
+    <a href=" {% url 'subject' subject.id %} " class="subjectIndex">
+        <h1>{{ subject.title }}</h1>
+        <p>{{ subject.description }} </p>       
+    </a>
+        
+    {% endfor %}
+
+    <a class="subjectIndex">
+        <h1>Co se planuje za vylepseni:</h1>
+        
+        <ul>
+            <li>
+                <p>- hezci design</p>
+            </li>
+            <li>
+                <p>- uzivatele si mohou take upravovat svoje predmety</p>
+            </li>
+            <li>
+                <p>- kazdy bude mit svoje predmety ale ty hlavni budou pristupne vsem</p>
+            </li>
+            <li>
+                <p>- v testu budou procenta a take znamka</p>
+            </li>
+            <li>
+                <p> - test se bude moct delat z vice hodin teoreticky i predmetu stejne tak i cvicdeni a listovani</p>
+            </li>
+            <li>
+                <p>- at funguje search vsude nebo at tam kde nefunguje neni</p>
+            </li>
+            <li>
+                <p>- lepsi navigace</p>
+            </li>
+            <li>
+                <p>- kazdy predmet ma svoji barvu kterou si urci uzivatel</p>
+            </li>
+            <li>
+                <p>- mnohem lepsi prostredi pro uzivatele (zmena hesla, prezdivky atd...)</p>
+            </li>
+            <li>
+                <p>- vase napady rikejte me a ja se je pokusim udelat :) </p>
+            </li>
+        </ul>       
+    </a>
+  
+{% endblock content %}

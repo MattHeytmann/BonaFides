@@ -1,0 +1,272 @@
+:root {
+  --background: #294c60;
+  --nav: #001b2e;
+  --letters: #adb6c4;
+}
+
+input {
+  border-radius: 0;
+  }
+  
+  input[type=text], input[type=button], input[type=submit] {
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+  }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color: var(--letters);
+  overflow-x: hidden;
+}
+
+body {
+  background: var(--background);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+nav {
+  background-color: var(--nav);
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+nav > ul {
+  list-style: none;
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+
+nav > ul > li {
+  width: calc(100vw / 3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+nav > ul > li > a {
+  padding: 20px;
+  margin: 10px;
+}
+
+p {
+  cursor: default;
+}
+
+a {
+  text-decoration: none;
+}
+
+nav input {
+  background: none;
+  border: none;
+  outline: none;
+  border-bottom: #adb6c4 1px solid;
+}
+
+nav input::placeholder {
+  color: #adb6c4;
+}
+
+.subjectIndex {
+  background-color: var(--nav);
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.386);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90vw;
+  margin: 20px 5vw 20px 5vw;
+  padding: 20px;
+  transition: transform 0.2s;
+}
+
+.subjectIndex:hover {
+  transform: scale(1.05);
+}
+
+.subjectIndex > * {
+  margin: 0 10px;
+}
+
+.loginForm {
+  background-color: var(--nav);
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.386);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 90vw;
+  margin: 5vw;
+  padding: 20px;
+}
+
+.loginForm > div {
+  display: flex;
+  font-size: small;
+  margin: 10px;
+}
+
+.loginForm > div > * {
+  padding: 5px;
+}
+
+.loginForm > div > input {
+  background: none;
+  border: none;
+  outline: none;
+  border-bottom: #adb6c4 1px solid;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: none;
+  outline: none;
+  border-bottom: #adb6c4 1px solid;
+  -webkit-text-fill-color: var(--letters);
+  box-shadow: 0 0 0px 1000px var(--nav) inset;
+}
+
+.loginForm > input {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: xx-large;
+  border-bottom: #adb6c4 1px solid;
+  transition: transform 0.2s;
+}
+
+.loginForm > input:hover {
+  transform: scale(1.1);
+}
+
+h1 {
+  text-align: center;
+}
+
+.mainH1 {
+  margin: 20px;
+}
+
+.subjectBody {
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+
+.subjectBodyInside {
+  background-color: var(--nav);
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.386);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  margin: 10px;
+  transition: transform 0.2s;
+}
+
+.subjectBodyInside:hover {
+  transform: scale(1.05);
+}
+
+.subjectBodyInside > ul {
+  display: flex;
+}
+
+.subjectBodyInside > ul > li > a {
+  text-decoration: underline;
+  padding: 0px 5px;
+}
+
+.listQ,
+.excQ,
+.listecQ {
+  background-color: var(--nav);
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.386);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 90vw;
+  margin: 20px 5vw 20px 5vw;
+  padding: 20px;
+}
+
+.listQ > *,
+.excQ > * {
+  margin: 5px;
+}
+
+.excQ > form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.excQ > form > input {
+  background: none;
+  border: none;
+  outline: none;
+  border-bottom: #adb6c4 1px solid;
+  font-size: large;
+}
+
+.excQ input[type="submit"] {
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+.correct {
+  color: green;
+}
+
+.wrong {
+  color: red;
+}
+
+.testQ {
+  background: #000000;
+}
+
+body > input[type="submit"] {
+    background-color: var(--nav);
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.386);
+  width: 90vw;
+  margin: 20px 5vw 20px 5vw;
+  padding: 20px;
+  transition: transform 0.2s;
+  border: none;
+  cursor: pointer;
+}
+
+.listQ > input {
+    background: none;
+  border: none;
+  outline: none;
+  border-bottom: #adb6c4 1px solid;
+  outline: none;
+  font-size: large;
+}
+
+body > input[type="submit"]:hover {
+    transform: scale(1.05);
+}

@@ -1,0 +1,32 @@
+{% extends "app.html" %}
+{% load static %}
+
+{% block title %}
+    Bona fide - test - {{ test.title }}
+{% endblock title %}
+
+{% block content %}
+
+    {% for question in test.question_set.all %}
+
+        <div class="listQ">
+            <h1>{{ question.title }}</h1>
+            <p>{{ question.description }}</p>
+            <input type="text" name="testInp">
+            <p class="hidden">{{ question.answer }}</p>
+        </div>
+        
+        {% endfor %}
+        
+        <input type="submit" value="Check" class="btn">
+
+        <div class="listecQ hidden">
+            <h1 class="correct">Answers correct:</h1>
+            <h2 class="correct">0</h2>
+            <h1 class="wrong">Answers incorrect:</h1>
+            <h2 class="wrong">0</h2>
+        </div>
+
+        <script src="{% static 'js/test_page.js' %}"></script>
+
+{% endblock content %}
