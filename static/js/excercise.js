@@ -6,11 +6,11 @@ questions.forEach((i) => {
   btn.addEventListener(`click`, (e) => {
     e.preventDefault();
 
-    alert(e);
-
     const parent = e.path[2].children[2].children;
     const answer = e.path[2].children[3];
     const text = parent[0];
+
+    alert(text, answer, parent)
 
     if (text.value.trim() === answer.textContent) {
       answer.classList.remove(`hidden`);
