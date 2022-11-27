@@ -8,8 +8,6 @@ document.querySelector(`.btn`).addEventListener(`click`, (e) => {
   e.preventDefault();
   all_tests.forEach((i) => {
 
-    alert(i)
-
     const correct = i.children[3];
     const answer = i.children[2];
 
