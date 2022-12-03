@@ -1,0 +1,55 @@
+{% extends "app.html" %}
+
+{% block title %}
+    Bona fide - list - {{ list.title }}
+{% endblock title %}
+
+{% block content %}
+
+    {% for question in list.privatequestion_set.all %}
+
+        <div class="listQ private">
+            <h1>{{ question.title }}</h1>
+            <h3>{{ question.description }}</h3>
+            <h4 class="correct">{{ question.answer }}</h4>
+            <a href="{% url 'deleteQuestion' question.id %}">Delete</a>
+        </div>
+        
+    {% endfor %}
+
+    <div class="excQ private">
+        
+        {% if message %}
+          <p>{{ message }}</p>
+        {% endif %}
+        
+        <form action="" autocomplete="off" method="post" class="createForm">
+
+            <h1>+ New question</h1>
+
+            {% csrf_token %}
+            <div class="formPart">
+                <p>Assigment:</p>
+                <input type="text" name="assigment" class="inp" required>
+            </div>
+
+            <div class="formPart">
+                <p>Description:</p>
+                <input type="text" name="description" class="inp" required>
+            </div>
+
+            <div class="formPart">
+                <p>Correct answer:</p>
+                <input type="text" name="answer" class="inp" required>
+            </div>
+
+            <input type="submit" class="btn" value="Save">
+        </form>
+
+    </div>
+
+    <div class="listQ private">
+        <a href="{% url 'deleteLesson' list.id %}">Delete lesson</a>
+    </div>
+
+{% endblock content %}

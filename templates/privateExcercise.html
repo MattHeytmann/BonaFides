@@ -1,0 +1,28 @@
+{% extends "app.html" %}
+{% load static %}
+
+{% block title %}
+    Bona fide - excercise - {{ excercise.title }}
+{% endblock title %}
+
+{% block content %}
+
+    {% for question in excercise.privatequestion_set.all %}
+
+        <div class="excQ private">
+            <h1>{{ question.title }}</h1>
+            <p>{{ question.description }}</p>
+            <form action="" autocomplete="off">
+                <input type="text" name="excerciseInp" class="inp">
+                <input type="submit" class="btn" value="Check">
+            </form>
+            
+            <h4 class="hidden">{{ question.answer }}</h4>
+        </div>
+        
+    {% endfor %}
+
+<script src="{% static 'js/excercise.js' %}"></script>
+
+{% endblock content %}
+

@@ -6,6 +6,19 @@
 
 {% block content %}
 
+    <a href=" {% url 'privateSC' %} " class="subjectIndex private">
+        <h1> + Create new subject </h1>      
+    </a>
+
+    {% for subject in privateSubjects %}
+        
+    <a href=" {% url 'privateSubject' subject.id %} " class="subjectIndex private">
+        <h1>{{ subject.title }}</h1>
+        <p>{{ subject.description }} </p>     
+    </a>
+        
+    {% endfor %}
+
     {% for subject in subjects %}
       
     <a href=" {% url 'subject' subject.id %} " class="subjectIndex">
@@ -45,6 +58,9 @@
             </li>
             <li>
                 <p>- mnohem lepsi prostredi pro uzivatele (zmena hesla, prezdivky atd...)</p>
+            </li>
+            <li>
+                <p>- mit hezci errormessages</p>
             </li>
             <li>
                 <p>- vase napady rikejte me a ja se je pokusim udelat :) </p>

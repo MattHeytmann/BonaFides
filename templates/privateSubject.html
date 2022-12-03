@@ -1,0 +1,46 @@
+{% extends "app.html" %}
+
+{% block title %}
+    Bona fide - {{ subject.title }}
+{% endblock title %}
+
+{% block content %}
+      
+    <h1 class="mainH1">{{ subject.title }} - {{ subject.description }} | {{ subject.privatelesson_set.all.count }}</h1>
+
+    <div class="subjectBody">
+
+        <a href="{% url 'privateLC' subject.id %}" class="subjectBodyInside private">
+            <h1>+</h1>
+            <h3>Create lesson</h3>
+        </a>
+
+        {% for lesson in subject.privatelesson_set.all %}
+        
+        <div class="subjectBodyInside private">
+            <h1>{{ lesson.title }}</h1>
+            <p>{{ lesson.created|date:"d-m-Y" }}</p>
+            <h3>{{ lesson.description }}</h3>
+            <ul>
+                <li>
+                    <a href="{% url 'privateList' lesson.id %}">List</a>
+                </li>
+                <li>
+                    <a href="{% url 'privateExcercise' lesson.id %}">Excercise</a>
+                </li>
+                <li>
+                    <a href="{% url 'privateTest' lesson.id %}">Test</a>
+                </li>
+            </ul>
+        </div>
+
+        {% endfor %}
+
+        <a href="{% url 'deleteSubject' subject.id %}" class="subjectBodyInside private">
+            <h1>-</h1>
+            <h3>Delete subject</h3> 
+        </a>
+
+    </div>
+
+{% endblock content %}
