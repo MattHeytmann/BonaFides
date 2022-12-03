@@ -28,6 +28,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'bonafides.herokuapp.com', 'bonafides.up.railway.app']
 
+CSRF_TRUSTED_ORIGINS = ['https://bonafides.up.railway.app/']
+
 
 # Application definition
 
