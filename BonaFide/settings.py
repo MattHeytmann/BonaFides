@@ -26,9 +26,9 @@ SECRET_KEY = 'django-insecure-$4a#hn=rnwkr11*y_2sy-9_0xtfqy8c1%ufylm#fb52)cgc4iu
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'bonafides.herokuapp.com', 'bonafides.up.railway.app']
+ALLOWED_HOSTS = ['127.0.0.1', 'bonafides.herokuapp.com', 'bonafide.up.railway.app']
 
-CSRF_TRUSTED_ORIGINS = ['https://bonafides.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['https://bonafide.up.railway.app']
 
 
 # Application definition
