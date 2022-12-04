@@ -5,15 +5,19 @@
             <a href="{% url 'index' %}">Home</a>
         </li>
         <li>
-            <form action="" method="get"  autocomplete="off">
+            <!-- <form action="" method="get"  autocomplete="off">
                 <input type="text" name="search" placeholder="search...">
-            </form>
+            </form> -->
+            {% if request.user.is_authenticated %}
+
+                <p> {{ request.user.username }} </p> 
+
+            {% endif %}
         </li>
         <li>
 
             {% if request.user.is_authenticated %}
 
-                <p> {{ request.user.username }} </p>  
                 <a href="{% url 'log-out' %}">Log-out</a>
 
             {% endif %}

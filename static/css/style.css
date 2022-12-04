@@ -1,11 +1,11 @@
 :root {
-  --background: #294c60;
-  --nav: #001b2e;
-  --letters: #adb6c4;
-  --privateBack: #f4d06f;
-  --privateLet: #001b2e;
-  --correct: green;
-  --wrong: red;
+  --background: #333333;
+  --nav: #05697c;
+  --letters: #d4d4d4;
+  --privateBack: #68a7ac;
+  --privateLet: #303030;
+  --correct: #016736;
+  --wrong: #a03035;
   --shaddow1: rgba(0, 0, 0, 0.75);
   --shaddow2: rgba(0, 0, 0, 0.386);
 }
@@ -51,7 +51,7 @@ nav > ul {
   list-style: none;
   width: 100%;
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: 33.333vw 33.333vw 33.333vw;
 }
 
 nav > ul > li {
@@ -89,6 +89,7 @@ nav input::placeholder {
   background-color: var(--nav);
   box-shadow: 0px 5px 10px 0px var(--shaddow2);
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 90vw;
@@ -174,7 +175,7 @@ h1 {
 
 .subjectBody {
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: 100vw;
 }
 
 .subjectBodyInside {
@@ -187,6 +188,13 @@ h1 {
   padding: 10px;
   margin: 10px;
   transition: transform 0.2s;
+}
+
+.subjectBodyInside * {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .subjectBodyInside:hover {
@@ -313,4 +321,8 @@ body > input[type="submit"]:hover {
 
 .createForm {
   flex-direction: column;
+}
+
+.delete {
+  background-color: var(--wrong);
 }
