@@ -24,13 +24,13 @@ def index(request):
     subjects = search_subject(request, Subject)
     privateSubjects = search_subject(request, PrivateSubject).filter(author = user)
 
-    return render(request, 'index.html', {"subjects" : subjects, "privateSubjects": privateSubjects})
+    return render(request, 'index.html', {"subjects" : subjects, "privateSubjects": privateSubjects, "address" : "index"})
 
 @login_required(login_url="log-in")
 def subject(request, pk):
 
     subject = Subject.objects.get(id=pk)
-    return render(request, 'subject.html', {"subject" : subject})
+    return render(request, 'subject.html', {"subject" : subject, "address" : "index"})
 
 @login_required(login_url="log-in")
 def privateSubject(request, pk):
@@ -38,7 +38,7 @@ def privateSubject(request, pk):
     user = request.user
     subject = PrivateSubject.objects.filter(author = user).get(id=pk)
 
-    return render(request, 'privateSubject.html', {"subject" : subject})
+    return render(request, 'privateSubject.html', {"subject" : subject, "address" : "index"})
 
 
 @login_required(login_url="log-in")
@@ -46,21 +46,21 @@ def llist(request, pk):
 
     llist = Lesson.objects.get(id=pk)
 
-    return render(request, 'list.html', {"list" : llist})
+    return render(request, 'list.html', {"list" : llist, "address" : 'subject', "num" : llist.subject.id})
 
 @login_required(login_url="log-in")
 def excercise(request, pk):
 
     excercise = Lesson.objects.get(id=pk)
 
-    return render(request, 'excercise.html', {"excercise" : excercise})
+    return render(request, 'excercise.html', {"excercise" : excercise, "address" : "subject", "num" : excercise.subject.id})
 
 @login_required(login_url="log-in")
 def test(request, pk):
 
     test = Lesson.objects.get(id=pk)
 
-    return render(request, 'test.html', {"test" : test})
+    return render(request, 'test.html', {"test" : test, "address" : "subject", "num" : test.subject.id})
 
 # PRIVATE
 @login_required(login_url="log-in")
@@ -69,7 +69,9 @@ def privateList(request, pk):
     llist = PrivateLesson.objects.get(id=pk)
 
     context = {
-        "list" : llist
+        "list" : llist, 
+        "address" : "privateSubject",
+        "num" : llist.subject.id,
     }
 
     if request.method == "POST":
@@ -92,19 +94,19 @@ def privateExcercise(request, pk):
 
     excercise = PrivateLesson.objects.get(id=pk)
 
-    return render(request, 'privateExcercise.html', {"excercise" : excercise})
+    return render(request, 'privateExcercise.html', {"excercise" : excercise, "address" : "privateSubject", "num" : excercise.subject.id})
 
 @login_required(login_url="log-in")
 def privateTest(request, pk):
 
     test = PrivateLesson.objects.get(id=pk)
 
-    return render(request, 'privateTest.html', {"test" : test})
+    return render(request, 'privateTest.html', {"test" : test, "address" : "privateSubject", "num" : test.subject.id})
 
 @login_required(login_url='log-in')
 def privateSubjectCreate(request):
 
-    context = {}
+    context = {"address" : "index"}
 
     if request.method == "POST":
         
@@ -127,7 +129,9 @@ def privateLessonCreate(request, pk):
     subject = PrivateSubject.objects.get(id = pk)
 
     context = {
-        'sub' : subject
+        'sub' : subject, 
+        "address" : "privateSubject", 
+        "num" : subject.id
     }
 
     if request.method == "POST":
@@ -149,7 +153,7 @@ def privateLessonCreate(request, pk):
 # AUTH
 def loginUser(request):
 
-    warning = {}
+    warning = {"address" : "index"}
 
     if request.user.is_authenticated:
         return redirect("index")
@@ -163,7 +167,7 @@ def loginUser(request):
             login(request, user)
             return redirect("index")
         else:
-            warning = {"warning" : "Password or username are incorrect"}
+            warning["warning"] = "Password or username are incorrect"
 
     return render(request, "login.html", warning)
 

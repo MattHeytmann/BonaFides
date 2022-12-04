@@ -1,21 +1,33 @@
 
 <nav>
     <ul>
-        <li>
-            <a href="{% url 'index' %}">Home</a>
+        <li id="left">
+            {% if num %}
+              <a href="{% url address num%}">
+            {% else %}
+                <a href="{% url address %}">
+            {% endif %}
+            
+                <span class="material-symbols-outlined">
+                    arrow_back_ios
+                </span>
+            </a><a href="{% url 'index' %}"> Home </a>
         </li>
-        <li>
-            <!-- <form action="" method="get"  autocomplete="off">
+        <!-- <li>
+            <form action="" method="get"  autocomplete="off">
                 <input type="text" name="search" placeholder="search...">
-            </form> -->
+            </form>
+            
+        </li> -->
+        <li>
+
+        </li>
+        <li id="right">
             {% if request.user.is_authenticated %}
 
                 <p> {{ request.user.username }} </p> 
 
             {% endif %}
-        </li>
-        <li>
-
             {% if request.user.is_authenticated %}
 
                 <a href="{% url 'log-out' %}">Log-out</a>

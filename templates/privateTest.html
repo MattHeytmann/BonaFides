@@ -13,7 +13,7 @@
             <h1>{{ question.title }}</h1>
             <p>{{ question.description }}</p>
             <input type="text" name="testInp">
-            <p class="hidden">{{ question.answer }}</p>
+            <h4 class="hidden">{{ question.answer }}</h4>
         </div>
         
         {% endfor %}
@@ -25,6 +25,11 @@
             <h4 class="correct">0</h4>
             <h2 class="wrong">Answers incorrect:</h2>
             <h4 class="wrong">0</h4>
+            <div class="flexRow">
+                <h3 class="grade">0</h3>
+                <h2>|</h2>
+                <h3 class="percentage">0%</h3>
+            </div>
         </div>
 
         <script src="{% static 'js/test_page.js' %}"></script>

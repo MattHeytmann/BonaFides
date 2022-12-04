@@ -51,19 +51,32 @@ nav > ul {
   list-style: none;
   width: 100%;
   display: grid;
-  grid-template-columns: 33.333vw 33.333vw 33.333vw;
+  grid-template-columns: 40vw 60vw;
 }
 
 nav > ul > li {
-  width: calc(100vw / 3);
+  width: fit-content;
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 75px;
 }
 
 nav > ul > li > a {
-  padding: 20px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin: 0px 5px;
+  min-width: 45px;
+  min-height: 45px;
+}
+
+nav > ul > li > a > span {
+  padding: 10px;
   margin: 10px;
+  text-align: center;
 }
 
 p {
@@ -235,7 +248,7 @@ h1 {
   justify-content: center;
 }
 
-.excQ > form > input{
+.excQ > form > input {
   background: none;
   border: none;
   outline: none;
@@ -325,4 +338,131 @@ body > input[type="submit"]:hover {
 
 .delete {
   background-color: var(--wrong);
+}
+
+.flexRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: 150px;
+}
+
+.flexRow > h3 {
+  width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media only screen and (min-width: 600px) {
+  .subjectBodyInside {
+    width: 48.5vw;
+  }
+
+  .subjectBody {
+    display: grid;
+    grid-template-columns: 50vw 50vw;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+
+  .subjectIndex {
+    width: 60vw;
+    margin-left: 20vw;
+    margin-right: 20vw;
+  }
+
+  .listQ,
+  .excQ,
+  .listecQ {
+    width: 60vw;
+    margin-left: 20vw;
+    margin-right: 20vw;
+  }
+
+  .loginForm {
+    width: 60vw;
+    margin-left: 20vw;
+    margin-right: 20vw;
+  }
+
+  body > input[type="submit"] {
+    width: 60vw;
+    margin-left: 20vw;
+    margin-right: 20vw;
+  }
+
+  .subjectBodyInside {
+    width: 32.3vw;
+  }
+
+  .subjectBody {
+    display: grid;
+    grid-template-columns: 33.333vw 33.333vw 33.333vw;
+  }
+
+}
+
+@media only screen and (min-width: 1920px) {
+  .subjectIndex {
+    width: 40vw;
+    margin-left: 30vw;
+    margin-right: 30vw;
+  }
+  .listQ,
+  .excQ,
+  .listecQ {
+    width: 40vw;
+    margin-left: 30vw;
+    margin-right: 30vw;
+  }
+  .loginForm {
+    width: 40vw;
+    margin-left: 30vw;
+    margin-right: 30vw;
+  }
+
+  body > input[type="submit"] {
+    width: 40vw;
+    margin-left: 30vw;
+    margin-right: 30vw;
+  }
+
+  .subjectBodyInside {
+    width: 32.3vw;
+  }
+
+  .subjectBody {
+    display: grid;
+    grid-template-columns: 33.333vw 33.333vw 33.333vw;
+  }
+
+}
+
+#left {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 0px;
+  height: 75px;
+}
+
+#right {
+  position: absolute;
+  right: 15px;
+  
+}
+
+#right > * {
+  margin-right: 20px;
+}
+
+span {
+  height: fit-content;
+  padding: 10px;
+  cursor: pointer;
+  
 }
