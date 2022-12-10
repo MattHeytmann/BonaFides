@@ -7,7 +7,7 @@
 
 {% block content %}
 
-    {% for question in test.privatequestion_set.all %}
+    {% for question in questions %}
 
         <div class="listQ private">
             <h1>{{ question.title }}</h1>

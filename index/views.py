@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
-from .models import Subject, Lesson, PrivateSubject, PrivateLesson, PrivateQuestion
+from .models import Subject, Lesson, Question, PrivateSubject, PrivateLesson, PrivateQuestion
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
+from django.db import models
 
 # Create your views here.
 
@@ -53,14 +54,18 @@ def excercise(request, pk):
 
     excercise = Lesson.objects.get(id=pk)
 
-    return render(request, 'excercise.html', {"excercise" : excercise, "address" : "subject", "num" : excercise.subject.id})
+    questions = Question.objects.filter(lesson = excercise).order_by("?")
+
+    return render(request, 'excercise.html', {"excercise" : excercise, "address" : "subject", "num" : excercise.subject.id, 'questions' : questions})
 
 @login_required(login_url="log-in")
 def test(request, pk):
 
     test = Lesson.objects.get(id=pk)
 
-    return render(request, 'test.html', {"test" : test, "address" : "subject", "num" : test.subject.id})
+    questions = Question.objects.filter(lesson = test).order_by("?")
+
+    return render(request, 'test.html', {"test" : test, "address" : "subject", "num" : test.subject.id, 'questions' : questions})
 
 # PRIVATE
 @login_required(login_url="log-in")
@@ -94,14 +99,18 @@ def privateExcercise(request, pk):
 
     excercise = PrivateLesson.objects.get(id=pk)
 
-    return render(request, 'privateExcercise.html', {"excercise" : excercise, "address" : "privateSubject", "num" : excercise.subject.id})
+    questions = PrivateQuestion.objects.filter(lesson = excercise).order_by("?")
+
+    return render(request, 'privateExcercise.html', {"excercise" : excercise, "address" : "privateSubject", "num" : excercise.subject.id, 'questions' : questions})
 
 @login_required(login_url="log-in")
 def privateTest(request, pk):
 
     test = PrivateLesson.objects.get(id=pk)
 
-    return render(request, 'privateTest.html', {"test" : test, "address" : "privateSubject", "num" : test.subject.id})
+    questions = PrivateQuestion.objects.filter(lesson = test).order_by("?")
+
+    return render(request, 'privateTest.html', {"test" : test, "address" : "privateSubject", "num" : test.subject.id, 'questions' : questions})
 
 @login_required(login_url='log-in')
 def privateSubjectCreate(request):

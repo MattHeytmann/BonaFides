@@ -5,9 +5,10 @@
     Bona fide - test - {{ test.title }}
 {% endblock title %}
 
+
 {% block content %}
 
-    {% for question in test.question_set.all %}
+    {% for question in questions %}
 
         <div class="listQ">
             <h1>{{ question.title }}</h1>

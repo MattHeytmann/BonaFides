@@ -7,7 +7,7 @@
 
 {% block content %}
 
-    {% for question in excercise.privatequestion_set.all %}
+    {% for question in questions %}
 
         <div class="excQ private">
             <h1>{{ question.title }}</h1>
